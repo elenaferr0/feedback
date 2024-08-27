@@ -32,19 +32,20 @@ const _defaultBottomSheetTextInputStyle = TextStyle(
 class FeedbackThemeData {
   /// Creates a [FeedbackThemeData].
   /// ![Theme](https://raw.githubusercontent.com/ueman/feedback/master/img/theme_description.png "Theme")
-  FeedbackThemeData(
-      {this.background = Colors.grey,
-      this.feedbackSheetColor = _lightGrey,
-      this.feedbackSheetHeight = .25,
-      this.activeFeedbackModeColor = _blue,
-      this.drawColors = _defaultDrawColors,
-      this.bottomSheetDescriptionStyle = _defaultBottomSheetDescriptionStyle,
-      this.bottomSheetTextInputStyle = _defaultBottomSheetTextInputStyle,
-      this.sheetIsDraggable = true,
-      Brightness? brightness,
-      Color? dragHandleColor,
-      ColorScheme? colorScheme})
-      :
+  FeedbackThemeData({
+    this.background = Colors.grey,
+    this.feedbackSheetColor = _lightGrey,
+    this.feedbackSheetHeight = .25,
+    this.activeFeedbackModeColor = _blue,
+    this.drawColors = _defaultDrawColors,
+    this.bottomSheetDescriptionStyle = _defaultBottomSheetDescriptionStyle,
+    this.bottomSheetTextInputStyle = _defaultBottomSheetTextInputStyle,
+    this.sheetIsDraggable = true,
+    this.inputDecoration, // TODO: add default input decoration
+    Brightness? brightness,
+    Color? dragHandleColor,
+    ColorScheme? colorScheme,
+  }) :
         // if the user chooses to supply custom drawing colors,
         // make sure there is at least on color to draw with
         assert(
@@ -113,6 +114,9 @@ class FeedbackThemeData {
 
   /// Text Style of the text input.
   final TextStyle bottomSheetTextInputStyle;
+
+  /// The input decoration of the text input field.
+  final InputDecoration? inputDecoration;
 
   /// Whether or not the bottom sheet is draggable.
   ///
