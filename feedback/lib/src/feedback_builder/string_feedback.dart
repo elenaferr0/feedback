@@ -70,17 +70,21 @@ class _StringFeedbackState extends State<StringFeedback> {
                     style:
                         FeedbackTheme.of(context).bottomSheetDescriptionStyle,
                   ),
-                  TextField(
-                    style: FeedbackTheme.of(context).bottomSheetTextInputStyle,
-                    decoration: FeedbackTheme.of(context).inputDecoration,
-                    key: const Key('text_input_field'),
-                    maxLines: 2,
-                    minLines: 2,
-                    controller: controller,
-                    textInputAction: TextInputAction.done,
-                    onChanged: (_) {
-                      //print(_);
-                    },
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: TextField(
+                      style: FeedbackTheme.of(context).bottomSheetTextInputStyle,
+                      decoration: FeedbackTheme.of(context).inputDecoration,
+                      cursorColor: FeedbackTheme.of(context).colorScheme.primary,
+                      key: const Key('text_input_field'),
+                      maxLines: 2,
+                      minLines: 2,
+                      controller: controller,
+                      textInputAction: TextInputAction.done,
+                      onChanged: (_) {
+                        //print(_);
+                      },
+                    ),
                   ),
                 ],
               ),
