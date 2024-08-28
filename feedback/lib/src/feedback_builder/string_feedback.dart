@@ -72,18 +72,31 @@ class _StringFeedbackState extends State<StringFeedback> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
-                    child: TextField(
-                      style: FeedbackTheme.of(context).bottomSheetTextInputStyle,
-                      decoration: FeedbackTheme.of(context).inputDecoration,
-                      cursorColor: FeedbackTheme.of(context).colorScheme.primary,
-                      key: const Key('text_input_field'),
-                      maxLines: 2,
-                      minLines: 2,
-                      controller: controller,
-                      textInputAction: TextInputAction.done,
-                      onChanged: (_) {
-                        //print(_);
-                      },
+                    child: Theme(
+                      data: ThemeData(
+                        textSelectionTheme: TextSelectionThemeData(
+                          selectionColor: FeedbackTheme.of(context)
+                              .colorScheme
+                              .secondary
+                              .withOpacity(0.5),
+                          selectionHandleColor: FeedbackTheme.of(context)
+                              .colorScheme
+                              .secondary,
+                        ),
+                      ),
+                      child: TextField(
+                        style: FeedbackTheme.of(context).bottomSheetTextInputStyle,
+                        decoration: FeedbackTheme.of(context).inputDecoration,
+                        cursorColor: FeedbackTheme.of(context).colorScheme.secondary,
+                        key: const Key('text_input_field'),
+                        maxLines: 2,
+                        minLines: 2,
+                        controller: controller,
+                        textInputAction: TextInputAction.done,
+                        onChanged: (_) {
+                          //print(_);
+                        },
+                      ),
                     ),
                   ),
                 ],
